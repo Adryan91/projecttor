@@ -1,0 +1,23 @@
+	<link rel="stylesheet" href="assets/css/custom/style-login.css">
+
+	<div ng-include src="'pages/includes/login.header.html'"></div>
+
+	<div class="login_wrapper">
+		<div class="login_panel log_section">
+			<div class="login_head"><h1>Log In to PROJECTOR Admin</h1></div>
+			<form action="" id="login_form">
+				<div class="form-group">
+					<label for="login_username">Username</label>
+					<input type="text" class="form-control input-lg" data-required="true" data-minlength="2" data-required-message="Please enter a valid Username" ng-model="username" >
+				</div>
+				<div class="form-group">
+					<label for="login_password">Password <a href="#/forgot-password" class="pull-right">Forgot password?</a></label>
+					<input type="password" class="form-control input-lg" data-required="true" data-minlength="6" data-minlength-message="Password should have at least 6 characters." data-required-message="Please enter a valid Password" ng-model="password">
+					<label class="checkbox"><input type="checkbox" name="login_remember" id="login_remember"> Remember me</label>
+				</div>
+				<div class="login_submit">
+					<a href="javascript:;" ng-click="login()" class="btn btn-primary btn-block btn-lg">Log In</a>
+				</div>
+			</form>
+		</div>
+	</div>

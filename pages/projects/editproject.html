@@ -1,0 +1,103 @@
+		<div id="wrapper_all">
+			<div ng-include src="'pages/includes/header.html'"></div>
+
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						<li><a href="javascript:;">Projector</a></li>
+						<li><a href="javascript:;">Project</a></li>
+						<li><span>Edit</span></li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="main_content">
+						<div class="row">
+							<div ng-include src="'pages/projects/inc/projectnav.html'"></div>
+							<div class="col-sm-12 col-md-9">
+								<div class="panel panel-default">
+								    <div class="panel-heading"><h4 class="panel-title">Edit Project - {{ Proj.TITLE }}</h4></div>
+								    <div class="panel-body">
+								        <fieldset>
+											<form class="form-horizontal">
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Project Title</label>
+													<div class="col-sm-12 col-md-8">
+														<input type="text" class="form-control" placeholder="Project title" ng-model="Proj.TITLE">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Project Description</label>
+													<div class="col-sm-12 col-md-8">
+														<textarea type="text" class="form-control" placeholder="Project description" ng-model="Proj.DESCRIPTION"></textarea>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Project Lead</label>
+													<div class="col-sm-12 col-md-6">
+														<div class="sepH_b">
+															<select class="form-control" ng-model="Proj.LEAD">
+																<option value="0">Choose a Project Lead</option>
+																<option ng-repeat="ul in UsersLeads" value="{{ ul.ID }}">{{ ul.FIRSTNAME +' '+ul.LASTNAME }}</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Start Date</label>
+													<div class="col-sm-12 col-md-4">
+														<input class="form-control datepicker" type="text" placeholder="Start date" data-date-format="dd-mm-yyyy" data-date-autoclose="true" ng-model="Proj.START_DATE" date-picker>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">End Date</label>
+													<div class="col-sm-12 col-md-4">
+														<input class="form-control datepicker" type="text" placeholder="End date" data-date-format="dd-mm-yyyy" data-date-autoclose="true" ng-model="Proj.END_DATE" date-picker>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Status</label>
+													<div class="col-sm-12 col-md-4">
+														<div class="sepH_b">
+															<select class="form-control" ng-model="Proj.STATUS">
+																<option value="">Choose a Status</option>
+																<option value="INACTIVE">Inactive</option>
+																<option value="ACTIVE">Active</option>
+																<option value="ONHOLD">On Hold</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<hr>
+												<div class="form-group">
+													<div class="col-sm-12 col-md-3 col-md-offset-9">
+														<button type="submit" class="btn btn-default" ng-click="editProject()">{{ SaveProject }}</button>
+													</div>
+												</div>
+											</form>
+										</fieldset>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div id="footer_space"></div>
+		</div>
+        <div ng-include src="'pages/includes/navbar.html'"></div>
+		<!-- <div ng-include src="'pages/includes/footer.html'"></div> -->
+
+		<div class="stickyNote-queue top-center" style="left: 40%; width: 60% !important;">
+			<div class="stickyNote border-top-right {{ NotiClass }}" style="display: none;">
+				<button type="button" class="stickyNote-close close" ng-click="dismissNoti()">×</button>
+				<p class="stickyNote-note">{{ NotificationMsg }}</p>
+			</div>
+		</div>

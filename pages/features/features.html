@@ -1,0 +1,55 @@
+		<div id="wrapper_all">
+			<div ng-include src="'pages/includes/header.html'"></div>
+
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul class="pull-left">
+						<li><a href="javascript:;">Projector</a></li>
+						<li><a href="#/projects">Projects</a></li>
+						<li><a href="javascript:;">Features</a></li>
+						<li><span>List</span></li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="main_content">
+						<div class="row">
+							<div ng-include src="'pages/features/inc/featurenav.html'"></div>
+							<div class="col-sm-12 col-md-10">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h4 class="panel-title">List Features for - {{ ProjTITLE }}</h4>
+									</div>
+									<table id="dt_basic" class="table table-striped">
+										<thead>
+											<tr>
+												<th>Feature Title</th>
+												<th>Developer</th>
+												<th>Status</th>
+												<th style="width: 20%;" class="text-center">Action</th>
+											</tr>
+										</thead>
+										<tbody>
+										    <tr ng-repeat="feat in Features">
+										        <td>{{ feat.TITLE }}</td>
+												<td>{{ feat.DEVELOPER }}</td>
+										        <td status-clean>{{ feat.STATUS }}</td>
+										        <td class="text-center">
+											        <a href="#/features/edit/{{ FeatSlug }}" featid="{{ feat.ID }}" feattitle="{{ feat.TITLE }}" featureslug><i class="icon-edit-sign"></i></a> | <a target="_blank" href="#/features/remove/{{ feat.ID }}"><i class="icon-remove-sign"></i></a>
+											    </td>
+										    </tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div id="footer_space"></div>
+		</div>
+	
+        <div ng-include src="'pages/includes/navbar.html'"></div>
+		<!-- <div ng-include src="'pages/includes/footer.html'"></div> -->

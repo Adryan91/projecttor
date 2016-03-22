@@ -1,0 +1,127 @@
+		<div id="wrapper_all">
+			<div ng-include src="'pages/includes/header.html'"></div>
+
+			<section id="breadcrumbs">
+				<div class="container">
+					<ul>
+						<li><a href="javascript:;">Projector</a></li>
+						<li><a href="#/projects">Projects</a></li>
+						<li><a href="javascript:;">Features</a></li>
+						<li><span>Add</span></li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="container clearfix main_section">
+				<div id="main_content_outer" class="clearfix">
+					<div id="main_content">
+						<div class="row">
+							<div ng-include src="'pages/features/inc/featurenav.html'"></div>
+							<div class="col-sm-12 col-md-9">
+								<div class="panel panel-default">
+								    <div class="panel-heading"><h4 class="panel-title">Add Feature for - {{ ProjTITLE }}</h4></div>
+								    <div class="panel-body">
+								        <fieldset>
+											<form class="form-horizontal">
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Feature Title</label>
+													<div class="col-sm-12 col-md-8">
+														<input type="text" class="form-control" placeholder="Feature Title" ng-model="Feature.TITLE">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label class="col-sm-2 control-label">Feature Description</label>
+													<div class="col-sm-12 col-md-8">
+														<textarea type="text" class="form-control" placeholder="Feature Description" ng-model="Feature.DESCRIPTION"></textarea>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label for="inputPassword" class="col-sm-2 control-label">Developer</label>
+													<div class="col-sm-12 col-md-4">
+														<div class="sepH_b">
+															<select class="form-control capitalize" ng-model="Feature.DEVELOPER_ID">
+																<option value="0">Choose a Developer</option>
+																<option ng-repeat="usr in Users" value="{{ usr.ID }}">{{ usr.FIRSTNAME +' '+ usr.LASTNAME }}</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label for="inputEmail" class="col-sm-2 control-label">ETA (hrs)</label>
+													<div class="col-sm-12 col-md-2">
+														<input type="number" class="form-control" placeholder="Enter ETA" ng-model="Feature.ETA">
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label for="inputEmail" class="col-sm-2 control-label">Start Date</label>
+													<div class="col-sm-12 col-md-4">
+														<input class="form-control datepicker" type="text" placeholder="Start date" data-date-format="dd-mm-yyyy" data-date-autoclose="true" ng-model="Feature.START_DATE" style="padding-left: 3% !important;" date-picker>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label for="inputPassword" class="col-sm-2 control-label">Status</label>
+													<div class="col-sm-12 col-md-4">
+														<div class="sepH_b">
+															<select class="form-control" ng-model="Feature.STATUS">
+																<option value="OPEN">Open</option>
+																<option value="IN_PROGRESS">In Progress</option>
+																<option value="UNDER_TESTING">Under Testing</option>
+																<option value="COMPLETE_DEVELOPMENT">Complete-Devlopment</option>
+																<option value="COMPLETE_PRODUCTION">Complete-Production</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<div class="form-group">
+													<label for="inputPassword" class="col-sm-2 control-label">Requested By</label>
+													<div class="col-sm-12 col-md-4">
+														<div class="sepH_b">
+															<select class="form-control" ng-model="Feature.REQUESTED_BY">
+																<option value="Gaz">Gaz</option>
+																<option value="Kim">Kim</option>
+																<option value="Yamini">Yamini</option>
+																<option value="Ajay">Ajay</option>
+																<option value="Rashmi">Rashmi</option>
+																<option value="Priti">Priti</option>
+																<option value="Chandni">Chandni</option>
+																<option value="Shanu">Shanu</option>
+																<option value="Priya">Priya</option>
+																<option value="Mughda">Mughda</option>
+																<option value="Shreerekha">Shreerekha</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<hr>
+												<div class="form-group">
+													<div class="col-sm-2 col-md-2 col-md-offset-9">
+														<button type="submit" class="btn btn-default" ng-click="addFeature()">{{ SaveBtn }}</button>
+													</div>
+												</div>
+											</form>
+										</fieldset>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div id="footer_space"></div>
+		</div>
+        <div ng-include src="'pages/includes/navbar.html'"></div>
+		<!-- <div ng-include src="'pages/includes/footer.html'"></div> -->
+
+		<div class="stickyNote-queue top-center" style="left: 40%; width: 60% !important;">
+			<div class="stickyNote border-top-right {{ NotiClass }}" style="display: none;">
+				<button type="button" class="stickyNote-close close" ng-click="dismissNoti()">×</button>
+				<p class="stickyNote-note">{{ NotificationMsg }}</p>
+			</div>
+		</div>
